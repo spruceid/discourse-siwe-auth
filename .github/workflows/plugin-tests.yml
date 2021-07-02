@@ -28,7 +28,7 @@ jobs:
       matrix:
         build_type: ["backend", "frontend"]
         ruby: ["2.7"]
-        postgres: ["12"]
+        postgres: ["13"]
         redis: ["4.x"]
 
     services:
