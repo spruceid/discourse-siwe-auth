@@ -1,5 +1,2 @@
-# **Plugin Name** Plugin
-
-**Plugin Summary**
-
-For more information, please see: **url to meta topic**
+# omniauth-siwe
+OmniAuth implementation of Sign-In with Ethereum
