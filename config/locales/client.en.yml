@@ -1,4 +1,8 @@
 en:
   js:
-    discourse_plugin_name:
-      placeholder: placeholder
+    login:
+      siwe:
+        name: "SIWE"
+        title: "with Ethereum"
+        sr_title: "Sign-In with Ethereum"
+        message: "Authenticating with Ethereum"

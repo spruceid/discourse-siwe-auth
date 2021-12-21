@@ -1,1 +1,4 @@
 en:
+  site_settings:
+    sign_in_with_ethereum_enabled: 'Enable Sign-In with Ethereum?'
+    statement: 'Human-readable ASCII assertion that the user will sign, and it must not contain `\n`.'

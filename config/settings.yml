@@ -1,4 +1,3 @@
 plugins:
-  plugin_name_enabled:
-    default: true
-    client: true
+  sign_in_with_ethereum_enabled: false
+  statement: ''
