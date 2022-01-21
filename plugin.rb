@@ -8,24 +8,27 @@
 
 require_relative 'lib/omniauth-siwe'
 
+register_asset 'stylesheets/application.css'
+register_asset 'stylesheets/background.scss'
 register_svg_icon 'fab-ethereum'
-register_asset 'javascripts/providers/metamask.js.es6'
 
-enabled_site_setting :sign_in_with_ethereum_enabled
+enabled_site_setting :siwe_enabled
 
 Discourse::Application.routes.append do
-  get '/siwe/message' => 'discourse_siwe_auth/messages#pagedata'
+  get '/siwe/index' => 'discourse_siwe_auth/siwe#index'
+  post '/siwe/message' => 'discourse_siwe_auth/siwe#message'
+  post '/siwe/signature' => 'discourse_siwe_auth/siwe#signature'
 end
 
 load File.expand_path('../lib/engine.rb', __FILE__)
 
-class EthereumAuthenticator < ::Auth::ManagedAuthenticator
+class SiweAuthenticator < ::Auth::ManagedAuthenticator
   def name
     'siwe'
   end
 
   def enabled?
-    SiteSetting.sign_in_with_ethereum_enabled?
+    SiteSetting.siwe_enabled?
   end
 
   def register_middleware(omniauth)
@@ -37,4 +40,4 @@ class EthereumAuthenticator < ::Auth::ManagedAuthenticator
 end
 
 auth_provider icon: 'fab-ethereum',
-              authenticator: EthereumAuthenticator.new
+              authenticator: SiweAuthenticator.new

@@ -1,3 +1,10 @@
 plugins:
-  sign_in_with_ethereum_enabled: false
-  statement: ''
+  siwe_enabled: false
+  siwe_statement: ''
+  siwe_prefix: ''
+  siwe_network: 'mainnet'
+  siwe_infura_id: ''
+  siwe_torus: false
+  siwe_portis_id: ''
+  siwe_fortmatic_key: ''
+  siwe_coinbase: false

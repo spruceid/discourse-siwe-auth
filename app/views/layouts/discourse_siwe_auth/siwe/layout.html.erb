@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SIWE Rails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "discourse_siwe_auth/application", media: "all" %>
+    <%= stylesheet_link_tag "discourse_siwe_auth/background", media: "all" %>
+
+    <link
+      href="https://api.fontshare.com/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901,1,2&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.5.2/ethers.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3modal@1.9.5/dist/index.min.js"></script>
+    <%= javascript_include_tag "siwe_rails/web3bundle" %>
+    <%= javascript_include_tag "siwe_rails/siwe" %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

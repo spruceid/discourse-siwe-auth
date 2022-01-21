@@ -1,4 +1,11 @@
 en:
   site_settings:
-    sign_in_with_ethereum_enabled: 'Enable Sign-In with Ethereum?'
-    statement: 'Human-readable ASCII assertion that the user will sign, and it must not contain `\n`.'
+    siwe_enabled: 'Enable Sign-In with Ethereum?'
+    siwe_statement: 'Human-readable ASCII assertion that the user will sign, and it must not contain `\n`.'
+    siwe_prefix: 'Route prefix to mount SIWE engine.'
+    siwe_network: 'Ethereum network to use with SIWE.'
+    siwe_infura_id: 'Infura ID to use with SIWE. Empty value will disable Coinbase and WalletConnect.'
+    siwe_torus: 'Enable Torus wallet on SIWE Web3Modal prompt.'
+    siwe_portis_id: 'Portis ID to use with SIWE. Empty value will disable this wallet.'
+    siwe_fortmatic: 'Fortmatic Key to use with SIWE. Empty value will disable this wallet.'
+    siwe_coinbase: 'Enable Coinbase wallet on SIWE Web3Modal prompt.'
