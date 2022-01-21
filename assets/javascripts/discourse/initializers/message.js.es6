@@ -4,5 +4,6 @@ function initializePlugin(api, siteSettings) {
 
 export default {
     name: 'discourse-siwe-auth',
-    initialize() { }
+    initialize() {
+    }
 }

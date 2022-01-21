@@ -1,5 +1,4 @@
 import { ajax } from 'discourse/lib/ajax';
-import loadScript from "discourse/lib/load-script";
 
 export default Discourse.Route.extend({
     model(opts) {
@@ -12,7 +11,6 @@ export default Discourse.Route.extend({
 
     actions: {
         didTransition() {
-            loadScript('/javascripts/../../providers/metamask.js.es6');
             return true;
         }
     }

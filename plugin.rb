@@ -9,6 +9,7 @@
 require_relative 'lib/omniauth-siwe'
 
 register_svg_icon 'fab-ethereum'
+register_asset 'javascripts/providers/metamask.js.es6'
 
 enabled_site_setting :sign_in_with_ethereum_enabled
 
@@ -17,16 +18,6 @@ Discourse::Application.routes.append do
 end
 
 load File.expand_path('../lib/engine.rb', __FILE__)
-
-after_initialize do
-  @custom_footer = <<-EOF.strip_heredoc.chomp
-    <div>
-    <h3>Discourse New Footer</h3>
-    </div>
-EOF
-
-  register_custom_html footer: @custom_footer
-end
 
 class EthereumAuthenticator < ::Auth::ManagedAuthenticator
   def name
