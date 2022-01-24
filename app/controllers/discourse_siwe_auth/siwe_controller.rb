@@ -1,13 +1,23 @@
 # frozen_string_literal: true
 
 module DiscourseSiweAuth
-  class SiweController < ApplicationController
+  class SiweController < ::ApplicationController
+    skip_before_action :check_xhr, only: [ :index ]
     layout "discourse_siwe_auth/siwe/layout"
 
     # /#{prefix}/index
     def index
-      @redirect = params[:redirect_url]
-      render "discourse_siwe_auth/siwe/index"
+      @settings = {
+        siwe_prefix: SiteSetting.siwe_prefix,
+        siwe_network: SiteSetting.siwe_network,
+        siwe_infura_id: SiteSetting.siwe_infura_id,
+        siwe_torus: SiteSetting.siwe_torus,
+        siwe_portis_id: SiteSetting.siwe_portis_id,
+        siwe_fortmatic_key: SiteSetting.siwe_fortmatic_key,
+        siwe_coinbase: SiteSetting.siwe_coinbase,
+      }
+      @redirect_url = params[:redirect_url]
+      render 'discourse_siwe_auth/siwe/index'
     end
 
     # /#{prefix}/message

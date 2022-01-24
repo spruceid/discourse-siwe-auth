@@ -1,10 +1,26 @@
 plugins:
-  siwe_enabled: false
+  siwe_enabled:
+    client: true
+    default: false
   siwe_statement: ''
-  siwe_prefix: ''
-  siwe_network: 'mainnet'
-  siwe_infura_id: ''
-  siwe_torus: false
-  siwe_portis_id: ''
-  siwe_fortmatic_key: ''
-  siwe_coinbase: false
+  siwe_prefix:
+    client: true
+    default: ''
+  siwe_network:
+    client: true
+    default: 'mainnet'
+  siwe_infura_id:
+    client: true
+    default: ''
+  siwe_torus:
+    client: true
+    default: false
+  siwe_portis_id:
+    client: true
+    default: ''
+  siwe_fortmatic_key:
+    client: true
+    default: ''
+  siwe_coinbase:
+    client: true
+    default: false

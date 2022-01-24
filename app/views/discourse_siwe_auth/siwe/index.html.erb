@@ -1,13 +1,13 @@
-<div class="background bg-no-repeat bg-cover bg-center bg-swe-landing font-satoshi bg-gray flex-grow w-full h-screen items-center flex justify-center flex-wrap flex-col">
+<div class="siwe-background bg-no-repeat bg-cover bg-center bg-swe-landing font-satoshi bg-gray flex-grow w-full h-screen items-center flex justify-center flex-wrap flex-col">
   <div class="w-96 text-center bg-white rounded-20 text-grey flex h-96 flex-col p-12 shadow-lg shadow-white">
-    <%= image_tag("siwe_rails/modal_icon.png", :height => 72, :width => 72, :alt => "Ethereum logo", :class => "self-center mb-8") %>
+    <%= image_tag("/plugins/discourse-siwe-auth/images/siwe/modal_icon.png", :height => 72, :width => 72, :alt => "Ethereum logo", :class => "self-center mb-8") %>
     <h5>Welcome</h5>
     <span class="text-xs">Sign-In with Ethereum to continue to your application</span>
 
     <button
-        class="h-12 border hover:scale-105 justify-evenly shadow-xl border-white mt-auto duration-100 ease-in-out transition-all transform flex items-center"
+        class="btn-social siwe h-12 border hover:scale-105 justify-evenly shadow-xl border-white mt-auto duration-100 ease-in-out transition-all transform flex items-center"
         id="siwe"
-        data-redirect="<%= redirect %>"
+        data-redirect="<%= @redirect_url %>"
         >
         <svg
             xmlns="http://www.w3.org/2000/svg"
