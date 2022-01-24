@@ -7,5 +7,5 @@ en:
     siwe_infura_id: 'Infura ID to use with SIWE. Empty value will disable Coinbase and WalletConnect.'
     siwe_torus: 'Enable Torus wallet on SIWE Web3Modal prompt.'
     siwe_portis_id: 'Portis ID to use with SIWE. Empty value will disable this wallet.'
-    siwe_fortmatic: 'Fortmatic Key to use with SIWE. Empty value will disable this wallet.'
+    siwe_fortmatic_key: 'Fortmatic Key to use with SIWE. Empty value will disable this wallet.'
     siwe_coinbase: 'Enable Coinbase wallet on SIWE Web3Modal prompt.'
