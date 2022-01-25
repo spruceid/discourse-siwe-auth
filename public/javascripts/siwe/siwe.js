@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         let params = new URLSearchParams(window.location.search);
         let redirect = new URL(`${window.location.origin}${params.get('redirect_url') || '/'}`);
         redirect.searchParams.append('ens', ens);
-        redirect.searchParams.append('address', address);
+        redirect.searchParams.append('address', address.toLowerCase());
         window.location.href = redirect.toString();
       });
   });

@@ -10,14 +10,30 @@ module OmniAuth
       end
 
       info do
-        {}
+        {
+          nickname: uid,
+        }
+      end
+      
+      extra do
+        { 
+          raw_info: {
+            address: request.params["address"],
+            ens: request.params["ens"]
+          }
+        }
       end
 
       option :name, "siwe"
       option :provider_uid, "siwe"
+      option :uid_field, "email"
 
       def request_phase
         redirect "/siwe/index?redirect_url=#{callback_url}"
+      end
+
+      def client
+        super
       end
 
       def callback_url
