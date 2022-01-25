@@ -3,5 +3,3 @@
 source 'http://rubygems.org'
 
 gemspec
-
-gem 'siwe', "~> 0.1.5"

@@ -3,7 +3,7 @@ PATH
   specs:
     omniauth-siwe (0.1.0)
       omniauth (~> 1.0)
-      siwe (~> 0.1.5)
+      siwe (~> 0.1.4)
 
 GEM
   remote: http://rubygems.org/
@@ -47,7 +47,6 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 2)
   omniauth-siwe!
-  siwe (~> 0.1.5)
 
 BUNDLED WITH
    2.2.32

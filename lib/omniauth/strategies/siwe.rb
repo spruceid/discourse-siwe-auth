@@ -4,6 +4,14 @@ module OmniAuth
   module Strategies
     class SIWE
       include OmniAuth::Strategy
+      
+      uid do
+        request.params["ens"].nil? ? request.params["ens"] : request.params["address"]
+      end
+
+      info do
+        {}
+      end
 
       option :name, "siwe"
       option :provider_uid, "siwe"
@@ -13,13 +21,12 @@ module OmniAuth
       end
 
       def callback_url
-        full_host + script_name + callback_path
+        '/auth/siwe/callback'
       end
 
       def callback_phase
-        address = request.params["address"]
-        ens = request.params["ens"]
-
+        @address = request.params["address"]
+        @ens = request.params["ens"]
         super
       end
     end

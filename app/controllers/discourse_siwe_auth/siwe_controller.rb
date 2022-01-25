@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 require 'siwe'
-
 module DiscourseSiweAuth
   class SiweController < ::ApplicationController
+    SESSION_SIWE_MESSAGE_KEY = 'siwe_message'
+
     skip_before_action :check_xhr, only: [ :index, :modal_config, :message, :signature ]
     layout "discourse_siwe_auth/siwe/layout"
 
@@ -14,13 +15,13 @@ module DiscourseSiweAuth
 
     def modal_config
       render json: {
-        siwe_prefix: SiteSetting.siwe_prefix,
-        siwe_network: SiteSetting.siwe_network,
-        siwe_infura_id: SiteSetting.siwe_infura_id,
-        siwe_torus: SiteSetting.siwe_torus,
-        siwe_portis_id: SiteSetting.siwe_portis_id,
-        siwe_fortmatic_key: SiteSetting.siwe_fortmatic_key,
-        siwe_coinbase: SiteSetting.siwe_coinbase,
+        prefix: SiteSetting.siwe_prefix,
+        network: SiteSetting.siwe_network,
+        INFURA_ID: SiteSetting.siwe_infura_id,
+        TORUS: SiteSetting.siwe_torus,
+        PORTIS_ID: SiteSetting.siwe_portis_id,
+        FORTMATIC_KEY: SiteSetting.siwe_fortmatic_key,
+        COINBASE: SiteSetting.siwe_coinbase,
       }
     end
 
@@ -44,7 +45,7 @@ module DiscourseSiweAuth
 
       if message.validate
         session[SESSION_SIWE_MESSAGE_KEY] = nil
-        redirect_to redirect_uri(params[:ens], message.address)
+        render json: { ens: params[:ens], address: message.address }
       else
         head :bad_request
       end
@@ -54,13 +55,18 @@ module DiscourseSiweAuth
 
     # Calculates expiration date
     def expires_at
-      (Time.now.utc + SiweRails.expiration_time).iso8601
+      (Time.now.utc + SiteSetting.siwe_expiration_time).iso8601
+    end
+
+    # Calculates expiration date
+    def not_before
+      (Time.now.utc + SiteSetting.siwe_not_before).iso8601
     end
 
     # Default required params
     def default_sign_params
       {
-        statement: SiweRails.statement,
+        statement: SiteSetting.siwe_statement,
         nonce: Siwe::Util.generate_nonce,
         chain_id: request.params[:chainId]
       }
@@ -69,16 +75,16 @@ module DiscourseSiweAuth
     # Add optional params if present
     def sign_params
       params = default_sign_params
-      params[:expiration_time] = expires_at unless SiweRails.expiration_time.nil?
-      params[:not_before] = SiweRails.not_before unless SiweRails.not_before.nil?
-      params[:request_id] = SecureRandom.uuid if SiweRails.request_id
-      params[:resources] = SiweRails.resources unless SiweRails.resources.nil?
+      params[:expiration_time] = expires_at unless SiteSetting.siwe_expiration_time.nil?
+      params[:not_before] = not_before unless SiteSetting.siwe_not_before.nil?
+      params[:request_id] = SecureRandom.uuid if SiteSetting.siwe_request_id
+      # params[:resources] = SiteSetting.siwe_resources unless SiteSetting.siwe_resources.nil?
       params
     end
 
     # Returns redirection URL
     def redirect_uri(ens, address)
-      "#{SiweRails.redirect_uri}?ens=#{ens}&address=#{address}"
+      "doweneed?ens=#{ens}&address=#{address}"
     end
   end
 end

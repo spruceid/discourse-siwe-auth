@@ -24,3 +24,12 @@ plugins:
   siwe_coinbase:
     client: true
     default: false
+  siwe_expiration_time:
+    client: false
+    default: 604800 #one week
+  siwe_not_before:
+    client: false
+    default: 0 #milisseconds
+  siwe_request_id:
+    client: true
+    default: true

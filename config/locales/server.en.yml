@@ -9,3 +9,6 @@ en:
     siwe_portis_id: 'Portis ID to use with SIWE. Empty value will disable this wallet.'
     siwe_fortmatic_key: 'Fortmatic Key to use with SIWE. Empty value will disable this wallet.'
     siwe_coinbase: 'Enable Coinbase wallet on SIWE Web3Modal prompt.'
+    siwe_expiration_time: 'Expiration time of the message, in milliseconds.'
+    siwe_not_before: 'Minimum validity time of the message, in miliseconds from Time.now.'
+    siwe_request_id: 'If an UUID should be added to the message.'
