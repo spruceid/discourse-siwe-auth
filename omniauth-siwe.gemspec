@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https://github.com/spruceid/omniauth-siwe'
 
   gem.add_dependency 'omniauth', '~> 1.0'
-  gem.add_dependency 'siwe', '~> 1.0'
-  gem.add_development_dependency 'bundler', '~> 1.9'
+  gem.add_dependency 'siwe', '~> 0.1.4'
+  gem.add_development_dependency 'bundler', '~> 2'
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")

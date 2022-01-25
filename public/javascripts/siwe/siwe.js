@@ -1,14 +1,21 @@
-const env = {
-  prefix: '<%= @settings[:siwe_prefix] %>',
-  network: '<%= @settings[:siwe_network] %>',
-  INFURA_ID: '<%= @settings[:siwe_infura_id] %>',
-  TORUS: <%= @settings[:siwe_torus] %>,
-  PORTIS_ID: '<%= @settings[:siwe_portis_id] %>',
-  FORTMATIC_KEY: '<%= @settings[:siwe_fortmatic_key] %>',
-  COINBASE: <%= @settings[:siwe_coinbase] %>,
-};
+document.addEventListener('DOMContentLoaded', async () => {
+  const getCSRF = () => {
+    return document.querySelector('meta[name="csrf-token"]').content;
+  };
 
-document.addEventListener('DOMContentLoaded', () => {
+  const env = await fetch('/siwe/modal_config', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': getCSRF(),
+    },
+    credentials: 'include',
+  }).then(res => res.json());
+
+  const getPath = (path) => {
+    return env.prefix ? `/${env.prefix}/${path}` : `${path}`;
+  };
+
   const Web3Modal = window.Web3Modal.default;
 
   const providerOptions = (() => {
@@ -78,10 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return opt;
   })();
 
-  const getCSRF = () => {
-    return document.querySelector('meta[name="csrf-token"]').content;
-  };
-
   const web3Modal = new Web3Modal({
     network: env.network,
     cacheProvider: true,
@@ -89,11 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener('click', async (e) => {
-    console.log(e.target.classList);
     if (e.target && e.target.id === "siwe") {
-      console.log(e);
-      e.preventDefault();
-
       const walletProvider = await web3Modal.connect();
       const provider = new ethers.providers.Web3Provider(walletProvider);
 
@@ -111,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let { chainId } = await provider.getNetwork();
 
-      const message = await fetch(`${env.prefix}/message`,
+      const message = await fetch(getPath('message'),
         {
           method: 'POST',
           headers: {
@@ -127,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const signature = await provider.getSigner().signMessage(message);
 
-      fetch(`${env.prefix}/signature`, {
+      fetch(getPath('signature'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

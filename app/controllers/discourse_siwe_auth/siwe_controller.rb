@@ -1,13 +1,19 @@
 # frozen_string_literal: true
+require 'siwe'
 
 module DiscourseSiweAuth
   class SiweController < ::ApplicationController
-    skip_before_action :check_xhr, only: [ :index ]
+    skip_before_action :check_xhr, only: [ :index, :modal_config, :message, :signature ]
     layout "discourse_siwe_auth/siwe/layout"
 
     # /#{prefix}/index
     def index
-      @settings = {
+      @redirect_url = params[:redirect_url]
+      render 'discourse_siwe_auth/siwe/index'
+    end
+
+    def modal_config
+      render json: {
         siwe_prefix: SiteSetting.siwe_prefix,
         siwe_network: SiteSetting.siwe_network,
         siwe_infura_id: SiteSetting.siwe_infura_id,
@@ -16,8 +22,6 @@ module DiscourseSiweAuth
         siwe_fortmatic_key: SiteSetting.siwe_fortmatic_key,
         siwe_coinbase: SiteSetting.siwe_coinbase,
       }
-      @redirect_url = params[:redirect_url]
-      render 'discourse_siwe_auth/siwe/index'
     end
 
     # /#{prefix}/message

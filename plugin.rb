@@ -7,6 +7,22 @@
 # url: https://github.com/spruceid/discourse-siwe-auth
 
 gem 'sass-rails', '6.0.0', require: true
+gem 'ffi', '>= 1.15.5', require: true
+gem 'ffi-compiler', '1.0.1', require: true
+gem 'scrypt', '~> 3.0', require: true
+gem 'rlp', '~> 0.7', require: true
+gem 'pkg-config', '1.4.7', require: true
+gem 'rake', '>= 13.0.6', require: true
+gem 'mini_portile2', '>= 2.7.1', require: true
+gem 'rbsecp256k1', '~> 5.1', require: true
+gem 'openssl', '~> 3.0', require: true
+gem 'konstructor', '~> 1.0', require: true
+gem 'keccak', '~> 1.3', require: true
+gem 'eth', '0.5.0', require: true
+gem 'hashie', '>= 5.0.0', require: true
+gem 'omniauth', '1.9.1', require: true
+gem 'rubyzip', '>= 2.3.2', require: true
+gem 'siwe', '0.1.5', require: true
 
 require_relative 'lib/omniauth-siwe'
 
@@ -43,16 +59,9 @@ after_initialize do
     get '/siwe/index' => 'siwe#index'
     post '/siwe/message' => 'siwe#message'
     post '/siwe/signature' => 'siwe#signature'
+    post '/siwe/modal_config' => 'siwe#modal_config'
   end
 end
-
-# Discourse::Application.routes.append do
-#   get '/siwe/index' => 'discourse_siwe_auth/siwe#oidc'
-#   post '/siwe/message' => 'discourse_siwe_auth/siwe#message'
-#   post '/siwe/signature' => 'discourse_siwe_auth/siwe#signature'
-# end
-
-# load File.expand_path('../lib/engine.rb', __FILE__)
 
 class SiweAuthenticator < ::Auth::ManagedAuthenticator
   def name

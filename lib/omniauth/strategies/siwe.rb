@@ -6,6 +6,7 @@ module OmniAuth
       include OmniAuth::Strategy
 
       option :name, "siwe"
+      option :provider_uid, "siwe"
 
       def request_phase
         redirect "/siwe/index?redirect_url=#{callback_url}"
