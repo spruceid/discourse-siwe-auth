@@ -1,0 +1,60 @@
+== Sender
+
+http://rubygems.org/gems/mkmfmf
+
+== DESCRIPTION:
+
+Fork of bundled mkmf.rb, should work as drop in replacement.
+
+Modifications: 
+
+* GDB and XCode path compatibility: relative path specified by mkmf 
+	(../../../../ext/<target>/...) confuses source-to-debug correspondence.
+	The downside to this is that mkmfmf specifies absolute paths, which
+	means that the project will have to be recompiled for debugging from an
+	alternate location. This can be disabled by adding a use_relative_paths block.
+
+* CURRENTLY NOT WORKING: Sub-directory support for source code: all .c, .m, .cc, .cxx., .cpp files and 
+	if the filesystem is case sensitive, all .C files are automatically included,
+	and any directories with .h files are added to INCFLAGS. 
+	
+* Automatically uses CC from ENV if set
+
+== SUMMARY:
+	
+	Add additional 'mf' to require 'mkmf': 
+
+		require 'mkmfmf'
+
+== INSTALL:
+
+	* sudo gem install mkmfmf
+
+== EXAMPLE:
+
+	see mkmf documentation
+
+== LICENSE:
+
+	(The MIT License)
+
+	Copyright (c) 2010 Asher
+
+	Permission is hereby granted, free of charge, to any person obtaining
+	a copy of this software and associated documentation files (the
+	'Software'), to deal in the Software without restriction, including
+	without limitation the rights to use, copy, modify, merge, publish,
+	distribute, sublicense, and/or sell copies of the Software, and to
+	permit persons to whom the Software is furnished to do so, subject to
+	the following conditions:
+
+	The above copyright notice and this permission notice shall be
+	included in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+	CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

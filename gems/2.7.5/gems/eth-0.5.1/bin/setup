@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+bundle install
+git submodule update --init --recursive
+rufo .
+yard doc
+rspec
+
+echo "Tests fail? Run \`geth --dev --http --ipcpath /tmp/geth.ipc\` in background and try again."

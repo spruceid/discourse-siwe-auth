@@ -1,0 +1,15 @@
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'build-aux/m4'.
+libtoolize: copying file 'build-aux/m4/libtool.m4'
+libtoolize: copying file 'build-aux/m4/ltoptions.m4'
+libtoolize: copying file 'build-aux/m4/ltsugar.m4'
+libtoolize: copying file 'build-aux/m4/ltversion.m4'
+libtoolize: copying file 'build-aux/m4/lt~obsolete.m4'
+configure.ac:11: installing 'build-aux/compile'
+configure.ac:5: installing 'build-aux/config.guess'
+configure.ac:5: installing 'build-aux/config.sub'
+configure.ac:9: installing 'build-aux/install-sh'
+configure.ac:9: installing 'build-aux/missing'
+Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'

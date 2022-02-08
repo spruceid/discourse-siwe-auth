@@ -1,0 +1,22 @@
+current directory: /var/www/gemtest/gems/2.7.5/gems/scrypt-3.0.7/ext/scrypt
+/usr/local/bin/ruby -I/usr/local/lib/ruby/site_ruby/2.7.0 -rrubygems /usr/local/lib/ruby/gems/2.7.0/gems/rake-13.0.1/exe/rake RUBYARCHDIR\=/var/www/gemtest/gems/2.7.5/extensions/x86_64-linux/2.7.0/scrypt-3.0.7 RUBYLIBDIR\=/var/www/gemtest/gems/2.7.5/extensions/x86_64-linux/2.7.0/scrypt-3.0.7
+mkdir -p x86_64-linux
+gcc -fexceptions -O -fno-omit-frame-pointer -fno-strict-aliasing -Wall -std=c99 -msse -msse2 -D_POSIX_C_SOURCE=199309L -fPIC   -o x86_64-linux/crypto_scrypt.o -c ./crypto_scrypt.c
+gcc -fexceptions -O -fno-omit-frame-pointer -fno-strict-aliasing -Wall -std=c99 -msse -msse2 -D_POSIX_C_SOURCE=199309L -fPIC   -o x86_64-linux/crypto_scrypt_smix.o -c ./crypto_scrypt_smix.c
+gcc -fexceptions -O -fno-omit-frame-pointer -fno-strict-aliasing -Wall -std=c99 -msse -msse2 -D_POSIX_C_SOURCE=199309L -fPIC   -o x86_64-linux/crypto_scrypt_smix_sse2.o -c ./crypto_scrypt_smix_sse2.c
+gcc -fexceptions -O -fno-omit-frame-pointer -fno-strict-aliasing -Wall -std=c99 -msse -msse2 -D_POSIX_C_SOURCE=199309L -fPIC   -o x86_64-linux/insecure_memzero.o -c ./insecure_memzero.c
+gcc -fexceptions -O -fno-omit-frame-pointer -fno-strict-aliasing -Wall -std=c99 -msse -msse2 -D_POSIX_C_SOURCE=199309L -fPIC   -o x86_64-linux/memlimit.o -c ./memlimit.c
+gcc -fexceptions -O -fno-omit-frame-pointer -fno-strict-aliasing -Wall -std=c99 -msse -msse2 -D_POSIX_C_SOURCE=199309L -fPIC   -o x86_64-linux/scrypt_calibrate.o -c ./scrypt_calibrate.c
+gcc -fexceptions -O -fno-omit-frame-pointer -fno-strict-aliasing -Wall -std=c99 -msse -msse2 -D_POSIX_C_SOURCE=199309L -fPIC   -o x86_64-linux/scrypt_ext.o -c ./scrypt_ext.c
+gcc -fexceptions -O -fno-omit-frame-pointer -fno-strict-aliasing -Wall -std=c99 -msse -msse2 -D_POSIX_C_SOURCE=199309L -fPIC   -o x86_64-linux/scryptenc_cpuperf.o -c ./scryptenc_cpuperf.c
+gcc -fexceptions -O -fno-omit-frame-pointer -fno-strict-aliasing -Wall -std=c99 -msse -msse2 -D_POSIX_C_SOURCE=199309L -fPIC   -o x86_64-linux/sha256.o -c ./sha256.c
+gcc -fexceptions -O -fno-omit-frame-pointer -fno-strict-aliasing -Wall -std=c99 -msse -msse2 -D_POSIX_C_SOURCE=199309L -fPIC   -o x86_64-linux/warnp.o -c ./warnp.c
+./warnp.c: In function ‘warnp_setprogname’:
+./warnp.c:39:9: warning: implicit declaration of function ‘strdup’; did you mean ‘strcmp’? [-Wimplicit-function-declaration]
+  name = strdup(p);
+         ^~~~~~
+         strcmp
+./warnp.c:39:7: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  name = strdup(p);
+       ^
+gcc -shared -o x86_64-linux/libscrypt_ext.so x86_64-linux/crypto_scrypt.o x86_64-linux/crypto_scrypt_smix.o x86_64-linux/crypto_scrypt_smix_sse2.o x86_64-linux/insecure_memzero.o x86_64-linux/memlimit.o x86_64-linux/scrypt_calibrate.o x86_64-linux/scrypt_ext.o x86_64-linux/scryptenc_cpuperf.o x86_64-linux/sha256.o x86_64-linux/warnp.o -fexceptions 

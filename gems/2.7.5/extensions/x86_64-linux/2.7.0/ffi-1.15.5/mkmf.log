@@ -1,0 +1,132 @@
+"pkg-config --exists libffi"
+package configuration for libffi is not found
+have_header: checking for ffi.h... -------------------- no
+
+"gcc -o conftest -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC conftest.c  -L. -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L. -L/usr/local/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby  -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+"gcc -E -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC  conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: ffi.h: No such file or directory
+ #include <ffi.h>
+          ^~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ffi.h>
+/* end */
+
+--------------------
+
+find_header: checking for ffi.h in /usr/local/include,/usr/include/ffi,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/ffi,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/ffi... -------------------- no
+
+"gcc -E -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC  conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: ffi.h: No such file or directory
+ #include <ffi.h>
+          ^~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ffi.h>
+/* end */
+
+"gcc -E -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC -I/usr/local/include conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: ffi.h: No such file or directory
+ #include <ffi.h>
+          ^~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ffi.h>
+/* end */
+
+"gcc -E -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC -I/usr/include/ffi conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: ffi.h: No such file or directory
+ #include <ffi.h>
+          ^~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ffi.h>
+/* end */
+
+"gcc -E -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/ffi conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: ffi.h: No such file or directory
+ #include <ffi.h>
+          ^~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ffi.h>
+/* end */
+
+"gcc -E -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/ffi conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: ffi.h: No such file or directory
+ #include <ffi.h>
+          ^~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ffi.h>
+/* end */
+
+--------------------
+
+block in append_ldflags: checking for whether -Wl,--exclude-libs,ALL is accepted as LDFLAGS... -------------------- yes
+
+"gcc -o conftest -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC conftest.c  -L. -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L. -L/usr/local/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby -Wl,--exclude-libs,ALL -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+block in append_ldflags: checking for whether -pthread is accepted as LDFLAGS... -------------------- yes
+
+"gcc -o conftest -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC conftest.c  -L. -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L. -L/usr/local/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--exclude-libs,ALL     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby -pthread -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+extconf.h is:
+/* begin */
+1: #ifndef EXTCONF_H
+2: #define EXTCONF_H
+3: #define HAVE_FFI_PREP_CIF_VAR 1
+4: #define USE_INTERNAL_LIBFFI 1
+5: #endif
+/* end */
+

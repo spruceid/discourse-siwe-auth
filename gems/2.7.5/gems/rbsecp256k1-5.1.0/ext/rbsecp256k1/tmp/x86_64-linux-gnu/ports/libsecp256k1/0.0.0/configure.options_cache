@@ -1,0 +1,1 @@
+["--host=x86_64-linux-gnu", "--enable-static", "--disable-shared", "--disable-benchmark", "--disable-exhaustive-tests", "--disable-tests", "--disable-debug", "--enable-experimental", "--with-pic=yes", "--enable-module-recovery", "--enable-module-ecdh", "--prefix=/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0"]

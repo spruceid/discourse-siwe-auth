@@ -1,0 +1,23 @@
+current directory: /var/www/gemtest/gems/2.7.5/gems/keccak-1.3.0/ext/digest
+/usr/local/bin/ruby -I /usr/local/lib/ruby/site_ruby/2.7.0 -r ./siteconf20220208-1859-5r694k.rb extconf.rb
+checking for ruby/digest.h... yes
+checking for stdio.h... yes
+checking for string.h... yes
+checking for rb_str_set_len()... yes
+creating Makefile
+
+current directory: /var/www/gemtest/gems/2.7.5/gems/keccak-1.3.0/ext/digest
+make DESTDIR\= clean
+
+current directory: /var/www/gemtest/gems/2.7.5/gems/keccak-1.3.0/ext/digest
+make DESTDIR\=
+compiling KeccakF-1600-reference.c
+compiling KeccakNISTInterface.c
+compiling KeccakSponge.c
+compiling displayIntermediateValues.c
+compiling keccak.c
+linking shared-object digest/keccak.so
+
+current directory: /var/www/gemtest/gems/2.7.5/gems/keccak-1.3.0/ext/digest
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 keccak.so ./.gem.20220208-1859-28je1y/digest

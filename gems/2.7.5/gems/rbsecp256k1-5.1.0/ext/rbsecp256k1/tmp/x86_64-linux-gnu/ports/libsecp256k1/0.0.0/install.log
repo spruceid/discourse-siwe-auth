@@ -1,0 +1,31 @@
+make[1]: Entering directory '/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/tmp/x86_64-linux-gnu/ports/libsecp256k1/0.0.0/secp256k1-fecf436d5327717801da84beb3066f5a9b80ea8e'
+ /bin/mkdir -p '/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   libsecp256k1.la '/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib'
+libtool: install: /usr/bin/install -c .libs/libsecp256k1.lai /var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib/libsecp256k1.la
+libtool: install: /usr/bin/install -c .libs/libsecp256k1.a /var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib/libsecp256k1.a
+libtool: install: chmod 644 /var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib/libsecp256k1.a
+libtool: install: /usr/bin/x86_64-linux-gnu-ranlib /var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib/libsecp256k1.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /bin/mkdir -p '/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/include'
+ /usr/bin/install -c -m 644 include/secp256k1.h include/secp256k1_preallocated.h include/secp256k1_ecdh.h include/secp256k1_recovery.h '/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/include'
+ /bin/mkdir -p '/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libsecp256k1.pc '/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib/pkgconfig'
+make[1]: Leaving directory '/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/tmp/x86_64-linux-gnu/ports/libsecp256k1/0.0.0/secp256k1-fecf436d5327717801da84beb3066f5a9b80ea8e'

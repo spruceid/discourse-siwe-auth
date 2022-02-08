@@ -1,0 +1,52 @@
+---
+name: Spec
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  schedule:
+    -
+      cron: "45 3 * * *"
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        ruby: ['2.7', '3.0']
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler-cache: false
+    - name: MacOs Dependencies
+      run: |
+        brew tap ethereum/ethereum
+        brew install --verbose pkg-config automake autogen ethereum
+      if: startsWith(matrix.os, 'macOS')
+    - name: Ubuntu Dependencies
+      run: |
+        sudo add-apt-repository -y ppa:ethereum/ethereum
+        sudo apt-get update
+        sudo apt-get install ethereum
+      if: startsWith(matrix.os, 'Ubuntu')
+    - name: Run Geth
+      run: |
+        geth --dev --http --ipcpath /tmp/geth.ipc &
+        disown &
+    - name: Gem Dependencies
+      run: |
+        git submodule update --init
+        bundle install
+    - name: Run Tests
+      run: |
+        bundle exec rspec
+      env:
+        COVERAGE: true

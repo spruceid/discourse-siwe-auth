@@ -1,0 +1,160 @@
+block in append_cflags: checking for whether -I/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/include is accepted as CFLAGS... -------------------- yes
+
+"gcc -o conftest -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC conftest.c  -L. -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L. -L/usr/local/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby  -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+"gcc -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC  -I/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/include -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+block in append_cflags: checking for whether -fPIC is accepted as CFLAGS... -------------------- yes
+
+"gcc -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC -I/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/include  -fPIC -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+block in append_cflags: checking for whether -Wno-undef is accepted as CFLAGS... -------------------- yes
+
+"gcc -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC -I/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/include -fPIC  -Wno-undef -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+block in append_cflags: checking for whether -Wall is accepted as CFLAGS... -------------------- yes
+
+"gcc -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC -I/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/include -fPIC -Wno-undef  -Wall -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+block in append_ldflags: checking for whether -Wl,--no-as-needed is accepted as LDFLAGS... -------------------- yes
+
+"gcc -o conftest -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC -I/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/include -fPIC -Wno-undef -Wall conftest.c  -L. -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L. -L/usr/local/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby -Wl,--no-as-needed -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+
+have_library: checking for -lsecp256k1... -------------------- yes
+
+"gcc -o conftest -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC -I/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/include -fPIC -Wno-undef -Wall conftest.c  -L. -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib -Wl,-rpath,/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib -L. -L/usr/local/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby -lsecp256k1  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: 
+15: int t(void) { ; return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for -lgmp... -------------------- no
+
+"gcc -o conftest -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC -I/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/include -fPIC -Wno-undef -Wall conftest.c  -L. -L/usr/local/lib -Wl,-rpath,/usr/local/lib -L/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib -Wl,-rpath,/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/lib -L. -L/usr/local/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed    -lsecp256k1  -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby -lgmp -lsecp256k1  -lm   -lc"
+/usr/bin/ld: cannot find -lgmp
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: 
+15: int t(void) { ; return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for secp256k1_recovery.h... -------------------- yes
+
+"gcc -E -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC -I/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/include -fPIC -Wno-undef -Wall  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <secp256k1_recovery.h>
+/* end */
+
+--------------------
+
+have_header: checking for secp256k1_ecdh.h... -------------------- yes
+
+"gcc -E -I/usr/local/include/ruby-2.7.0/x86_64-linux -I/usr/local/include/ruby-2.7.0/ruby/backward -I/usr/local/include/ruby-2.7.0 -I. -I/usr/local/include    -g -O2 -fPIC -I/var/www/gemtest/gems/2.7.5/gems/rbsecp256k1-5.1.0/ext/rbsecp256k1/ports/x86_64-linux-gnu/libsecp256k1/0.0.0/include -fPIC -Wno-undef -Wall  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <secp256k1_ecdh.h>
+/* end */
+
+--------------------
+

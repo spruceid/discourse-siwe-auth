@@ -1,0 +1,6 @@
+x86_64-linux-gnu-gcc -DHAVE_CONFIG_H -I. -I./src -O2  -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-overlength-strings -Wall -Wno-unused-function -Wextra -Wcast-align -Wcast-align=strict -fvisibility=hidden  -g -O2 -c src/gen_context.c -o gen_context.o
+x86_64-linux-gnu-gcc -O2  -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-overlength-strings -Wall -Wno-unused-function -Wextra -Wcast-align -Wcast-align=strict -fvisibility=hidden  -g -O2  gen_context.o -o gen_context
+./gen_context
+  CC       src/libsecp256k1_la-secp256k1.lo
+  CCLD     libsecp256k1.la
+/usr/bin/x86_64-linux-gnu-ar: `u' modifier ignored since `D' is the default (see `U')
