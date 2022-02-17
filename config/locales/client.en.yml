@@ -3,3 +3,9 @@ en:
     login:
       siwe:
         title: "Ethereum"
+    eth_providers:
+      dropdown:
+        title: "Select Provider"
+        button: "Authenticate"
+      metamask: "MetaMask"
+      walletconnect: "WalletConnect"

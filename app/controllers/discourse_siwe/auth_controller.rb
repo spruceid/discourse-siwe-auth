@@ -12,7 +12,7 @@ module DiscourseSiwe
         issued_at: Time.now.utc.iso8601,
         statement:  ::DiscourseSiwe::MESSAGE ,
         nonce: Siwe::Util.generate_nonce,
-        chain_id: "1",
+        chain_id: params[:chain_id],
       })
     
       render json: { message: message.prepare_message }
