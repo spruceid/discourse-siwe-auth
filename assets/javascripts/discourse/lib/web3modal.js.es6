@@ -113,7 +113,7 @@ const Web3Modal = EmberObject.extend({
 
 
     async signMessage() {
-        const walletProvider = await web3Modal.connect();
+        const walletProvider = await this.web3Modal.connect();
         const provider = new ethers.providers.Web3Provider(walletProvider);
 
         const [address] = await provider.listAccounts();
