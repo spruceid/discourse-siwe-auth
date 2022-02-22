@@ -4,6 +4,7 @@ import Web3Modal from "../lib/web3modal";
 export default Controller.extend({
   init() {
     this._super(...arguments);
+    this.initAuth();
   },
 
   verifySignature(account, message, signature, avatar) {
