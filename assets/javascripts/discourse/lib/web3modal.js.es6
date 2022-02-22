@@ -82,7 +82,7 @@ const Web3Modal = EmberObject.extend({
             })
             .catch(popupAjaxError);
 
-        const signature = await this.provider.send(
+        const signature = await provider.send(
             'personal_sign',
             [ethers.utils.hexlify(ethers.utils.toUtf8Bytes(message)), address.toLowerCase()]
         );
