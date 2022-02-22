@@ -16,10 +16,6 @@ const Web3Modal = EmberObject.extend({
 
         const env = {
             INFURA_ID: '8fcacee838e04f31b6ec145eb98879c8',
-            TORUS: '',
-            PORTIS_ID: '',
-            FORTMATIC_KEY: '',
-            COINBASE: '',
         }
 
         const providerOptions = (() => {
@@ -30,64 +26,7 @@ const Web3Modal = EmberObject.extend({
                         package: Web3Bundle.WalletConnectProvider,
                         options: {
                             infuraId: env.INFURA_ID,
-                            pollingInterval: 100000,
                         }
-                    };
-                }
-
-                if (env.TORUS) {
-                    opt.torus = {
-                        package: Web3Bundle.Torus,
-                    };
-                }
-
-                if (env.PORTIS_ID) {
-                    opt.portis = {
-                        package: Web3Bundle.Portis,
-                        options: {
-                            id: env.PORTIS_ID,
-                        },
-                    };
-                }
-
-                if (env.FORTMATIC_KEY) {
-                    opt.fortmatic = {
-                        package: Web3Bundle.Fortmatic,
-                        options: {
-                            key: env.FORTMATIC_KEY,
-                        },
-                    };
-                }
-
-                if (env.COINBASE && env.INFURA_ID) {
-                    opt['custom-coinbase'] = {
-                        display: {
-                            logo: '/plugins/discourse-siwe-auth/images/siwe/coinbase.svg',
-                            name: 'Coinbase',
-                            description: 'Scan with WalletLink to connect',
-                        },
-                        options: {
-                            appName: 'Sign-In with Ethereum',
-                            networkUrl: `https://${env.network}.infura.io/v3/${env.INFURA_ID}`,
-                            chainId: 1,
-                            darkMode: false,
-                        },
-                        package: Web3Bundle.WalletLink,
-                        connector: async (_, options) => {
-                            const {
-                                appName,
-                                networkUrl,
-                                chainId,
-                                darkMode
-                            } = options;
-                            const walletLink = new Web3Bundle.WalletLink({
-                                appName,
-                                darkMode,
-                            });
-                            const provider = walletLink.makeWeb3Provider(networkUrl, chainId);
-                            await provider.enable();
-                            return provider;
-                        },
                     };
                 }
             } catch (err) {
@@ -137,13 +76,16 @@ const Web3Modal = EmberObject.extend({
             message
         } = await ajax('/discourse-siwe/message', {
                 data: {
-                    eth_account: address,
+                    eth_account: address.toLowerCase(),
                     chain_id: chainId,
                 }
             })
             .catch(popupAjaxError);
 
-        const signature = await provider.getSigner().signMessage(message);
+        const signature = await this.provider.send(
+            'personal_sign',
+            [ethers.utils.hexlify(ethers.utils.toUtf8Bytes(message)), address.toLowerCase()]
+        );
 
         return [ens || address, message, signature, avatar];
     },
