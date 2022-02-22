@@ -2,24 +2,14 @@
   <textarea id="eth_account" name="eth_account"></textarea>
   <textarea id="eth_message" name="eth_message"></textarea>
   <textarea id="eth_signature" name="eth_signature"></textarea>
+  <textarea id="eth_avatar" name="eth_avatar"></textarea>
 </form>
 <div class="eth_provider_container">
-  <div class="eth_provider_select">
-      {{combo-box
-      name="badge_type_id"
-      none="eth_providers.dropdown.title"
-      class="eth_provider_selector"
-      value=selectedProvider
-      content=providerList
-      onChange=(action (mut selectedProvider))
-    }}
-  </div>
   <div class="eth_provider_auth_button">
     {{d-button
       class="btn-primary"
       action=(action "initAuth")
       label="eth_providers.dropdown.button"
-      disabled=noProviderSelected
     }}
   </div>
 </div>
