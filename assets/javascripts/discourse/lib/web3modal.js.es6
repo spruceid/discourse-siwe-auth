@@ -124,7 +124,7 @@ const Web3Modal = EmberObject.extend({
         let ens, avatar;
         try {
             ens = await provider.lookupAddress(address);
-            avatar = await provider.getAvatar();
+            // avatar = await provider.getAvatar();
         } catch (error) {
             console.error(error);
         }
@@ -137,7 +137,7 @@ const Web3Modal = EmberObject.extend({
             message
         } = await ajax('/discourse-siwe/message', {
                 data: {
-                    eth_account: ethAccount,
+                    eth_account: address,
                     chain_id: chainId,
                 }
             })
