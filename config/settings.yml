@@ -3,3 +3,4 @@ plugins:
     default: true
   siwe_infura_id:
     client: true
+    default: ''
