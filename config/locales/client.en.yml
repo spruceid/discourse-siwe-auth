@@ -6,4 +6,5 @@ en:
         title: "with Ethereum"
     eth_providers:
       title: "Sign-in with Ethereum"
-      button: "Sign-in with Ethereum"
+      buttons:
+        start: "Sign-in with Ethereum"

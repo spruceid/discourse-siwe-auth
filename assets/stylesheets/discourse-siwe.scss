@@ -1,6 +1,5 @@
 .eth_provider_container {
   display: flex;
-  position: absolute;
   top: 0px;
   left: 0px;
   height: 100vh;
@@ -8,6 +7,4 @@
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  z-index: 999999;
-  background-color: var(--secondary);
 }
