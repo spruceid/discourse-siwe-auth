@@ -4,10 +4,7 @@ import Web3Modal from "../lib/web3modal";
 export default Controller.extend({
   init() {
     this._super(...arguments);
-    let provider = Web3Modal.create();
-    await provider.providerInit();
-    const [account, message, signature, avatar] = await provider.runSigningProcess();
-    this.verifySignature(account, message, signature, avatar);
+    this.initAuth();
   },
 
   verifySignature(account, message, signature, avatar) {
@@ -16,6 +13,12 @@ export default Controller.extend({
     document.getElementById("eth_signature").value = signature;
     document.getElementById("eth_avatar").value = avatar;
     document.getElementById("siwe-sign").submit();
+  },
+  async initAuth() {
+    let provider = Web3Modal.create();
+    await provider.providerInit();
+    const [account, message, signature, avatar] = await provider.runSigningProcess();
+    this.verifySignature(account, message, signature, avatar);
   },
   actions: {
     async initAuth() {
