@@ -2,10 +2,7 @@ en:
   js:
     login:
       siwe:
-        title: "Ethereum"
+        title: "with Ethereum"
     eth_providers:
-      dropdown:
-        title: "Select Provider"
-        button: "Authenticate"
-      metamask: "MetaMask"
-      walletconnect: "WalletConnect"
+      title: "Sign-in with Ethereum"
+      button: "Sign-in with Ethereum"

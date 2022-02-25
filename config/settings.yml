@@ -1,3 +1,5 @@
 plugins:
   discourse_siwe_enabled:
     default: true
+  siwe_infura_id:
+    client: true

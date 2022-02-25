@@ -1,8 +1,13 @@
 .eth_provider_container {
   display: flex;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
   flex-direction: column;
   text-align: center;
-  justify-content: space-between;
+  justify-content: center;
 
   .eth_provider_select {
     margin-bottom: 10px;
