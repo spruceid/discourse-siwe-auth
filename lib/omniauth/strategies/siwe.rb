@@ -3,7 +3,7 @@ module OmniAuth
     class Siwe
       include OmniAuth::Strategy
 
-      option :fields, [:eth_message, :eth_account, :eth_signature]
+      option :fields, %i[eth_message eth_account eth_signature]
       option :uid_field, :eth_account
 
       uid do
@@ -12,7 +12,8 @@ module OmniAuth
 
       info do
         {
-          name: request.params[options.uid_field.to_s]
+          name: request.params[options.uid_field.to_s],
+          image: request.params['eth_avatar']
         }
       end
 
@@ -24,7 +25,6 @@ module OmniAuth
       def callback_phase
         eth_message_crlf = request.params['eth_message']
         eth_message = eth_message_crlf.encode(eth_message_crlf.encoding, universal_newline: true)
-        eth_account = request.params['eth_account']
         eth_signature = request.params['eth_signature']
         siwe_message = ::Siwe::Message.from_message(eth_message)
 

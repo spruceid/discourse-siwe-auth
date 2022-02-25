@@ -19,5 +19,10 @@ export default Controller.extend({
     await provider.providerInit();
     const [account, message, signature, avatar] = await provider.runSigningProcess();
     this.verifySignature(account, message, signature, avatar);
+  },
+  actions: {
+    async initAuth() {
+      this.initAuth();
+    }
   }
 });

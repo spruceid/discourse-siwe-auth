@@ -5,8 +5,8 @@
 # version: 0.1
 
 enabled_site_setting :discourse_siwe_enabled
-register_svg_icon "fab-ethereum"
-register_asset "stylesheets/discourse-siwe.scss"
+register_svg_icon 'fab-ethereum'
+register_asset 'stylesheets/discourse-siwe.scss'
 
 %w[
   ../lib/omniauth/strategies/siwe.rb
@@ -47,7 +47,8 @@ class ::SiweAuthenticator < ::Auth::ManagedAuthenticator
 end
 
 auth_provider authenticator: ::SiweAuthenticator.new,
-              icon: 'fab-ethereum'
+              icon: 'fab-ethereum',
+              full_screen_login: true
 
 after_initialize do
   %w[
@@ -61,4 +62,3 @@ after_initialize do
     mount ::DiscourseSiwe::Engine, at: '/discourse-siwe'
   end
 end
- 
