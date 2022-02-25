@@ -8,6 +8,10 @@
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  z-index: 999999;
+  z-index: 9999;
   background-color: var(--secondary);
+}
+
+#WEB3_CONNECT_MODAL_ID > div {
+  z-index: 99999;
 }

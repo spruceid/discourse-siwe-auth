@@ -6,45 +6,36 @@ import {
     popupAjaxError
 } from "discourse/lib/ajax-error";
 import loadScript from "discourse/lib/load-script";
-import { withPluginApi } from "discourse/lib/plugin-api";
 
 
 const Web3Modal = EmberObject.extend({
     web3Modal: null,
 
-    providerInit() {
-        withPluginApi("0.11.7", async (api) => {
-            await this.loadScripts();
-            const Web3Modal = window.Web3Modal.default;
-            const siteSettings = api.container.lookup("site-settings:main");
-
-            const env = {
-                INFURA_ID: siteSettings.siwe_infura_id,
-            }
-
-            const providerOptions = (() => {
-                const opt = {};
-                try {
-                    if (env.INFURA_ID) {
-                        opt.walletconnect = {
-                            package: Web3Bundle.WalletConnectProvider,
-                            options: {
-                                infuraId: env.INFURA_ID,
-                            }
-                        };
-                    }
-                } catch (err) {
-                    console.log(err);
+    async providerInit(env) {
+        await this.loadScripts();
+        const Web3Modal = window.Web3Modal.default;
+        const providerOptions = (() => {
+            const opt = {};
+            try {
+                if (env.INFURA_ID) {
+                    opt.walletconnect = {
+                        package: Web3Bundle.WalletConnectProvider,
+                        options: {
+                            infuraId: env.INFURA_ID,
+                        }
+                    };
                 }
-                return opt;
-            })();
+            } catch (err) {
+                console.log(err);
+            }
+            return opt;
+        })();
 
-            this.web3Modal = new Web3Modal({
-                network: env.network,
-                cacheProvider: true,
-                providerOptions,
-            });
-        })
+        this.web3Modal = new Web3Modal({
+            network: env.network,
+            cacheProvider: true,
+            providerOptions,
+        });
     },
 
     async loadScripts() {
@@ -87,12 +78,18 @@ const Web3Modal = EmberObject.extend({
         })
             .catch(popupAjaxError);
 
-        const signature = await provider.send(
-            'personal_sign',
-            [ethers.utils.hexlify(ethers.utils.toUtf8Bytes(message)), address.toLowerCase()]
-        );
+        try {
+            const signature = await provider.send(
+                'personal_sign',
+                [ethers.utils.hexlify(ethers.utils.toUtf8Bytes(message)), address.toLowerCase()]
+            );
+            return [ens || address, message, signature, avatar];
 
-        return [ens || address, message, signature, avatar];
+        } catch (e) {
+            await this.web3Modal.clearCachedProvider();
+            console.error(e);
+            throw e;
+        }
     },
 
     async runSigningProcess() {

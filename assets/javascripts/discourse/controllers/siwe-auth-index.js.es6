@@ -1,4 +1,5 @@
 import Controller from "@ember/controller";
+import { withPluginApi } from "discourse/lib/plugin-api";
 import Web3Modal from "../lib/web3modal";
 
 export default Controller.extend({
@@ -14,18 +15,24 @@ export default Controller.extend({
     document.getElementById("eth_avatar").value = avatar;
     document.getElementById("siwe-sign").submit();
   },
+
   async initAuth() {
+    const env = withPluginApi("0.11.7", (api) => {
+      const siteSettings = api.container.lookup("site-settings:main");
+      return {
+        INFURA_ID: siteSettings.siwe_infura_id,
+      }
+    });
     let provider = Web3Modal.create();
-    await provider.providerInit();
+    await provider.providerInit(env);
+
     const [account, message, signature, avatar] = await provider.runSigningProcess();
     this.verifySignature(account, message, signature, avatar);
   },
+
   actions: {
     async initAuth() {
-      let provider = Web3Modal.create();
-      await provider.providerInit();
-      const [account, message, signature, avatar] = await provider.runSigningProcess();
-      this.verifySignature(account, message, signature, avatar);
+      this.initAuth();
     }
   }
 });
