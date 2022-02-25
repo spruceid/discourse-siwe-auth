@@ -2,6 +2,7 @@ en:
   js:
     login:
       siwe:
+        name: "SIWE"
         title: "with Ethereum"
     eth_providers:
       title: "Sign-in with Ethereum"
