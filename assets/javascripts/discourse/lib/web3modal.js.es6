@@ -1,45 +1,50 @@
 import EmberObject from "@ember/object";
-import loadScript from "discourse/lib/load-script";
 import {
     ajax
 } from "discourse/lib/ajax";
 import {
     popupAjaxError
 } from "discourse/lib/ajax-error";
+import loadScript from "discourse/lib/load-script";
+import { withPluginApi } from "discourse/lib/plugin-api";
+
 
 const Web3Modal = EmberObject.extend({
     web3Modal: null,
 
-    async providerInit() {
-        await this.loadScripts();
-        const Web3Modal = window.Web3Modal.default;
+    providerInit() {
+        withPluginApi("0.11.7", async (api) => {
+            await this.loadScripts();
+            const Web3Modal = window.Web3Modal.default;
+            const siteSettings = api.container.lookup("site-settings:main");
 
-        const env = {
-            INFURA_ID: '8fcacee838e04f31b6ec145eb98879c8',
-        }
-
-        const providerOptions = (() => {
-            const opt = {};
-            try {
-                if (env.INFURA_ID) {
-                    opt.walletconnect = {
-                        package: Web3Bundle.WalletConnectProvider,
-                        options: {
-                            infuraId: env.INFURA_ID,
-                        }
-                    };
-                }
-            } catch (err) {
-                console.log(err);
+            const env = {
+                INFURA_ID: siteSettings.siwe_infura_id,
             }
-            return opt;
-        })();
 
-        this.web3Modal = new Web3Modal({
-            network: env.network,
-            cacheProvider: true,
-            providerOptions,
-        });
+            const providerOptions = (() => {
+                const opt = {};
+                try {
+                    if (env.INFURA_ID) {
+                        opt.walletconnect = {
+                            package: Web3Bundle.WalletConnectProvider,
+                            options: {
+                                infuraId: env.INFURA_ID,
+                            }
+                        };
+                    }
+                } catch (err) {
+                    console.log(err);
+                }
+                return opt;
+            })();
+
+            this.web3Modal = new Web3Modal({
+                network: env.network,
+                cacheProvider: true,
+                providerOptions,
+            });
+        })
     },
 
     async loadScripts() {
@@ -75,11 +80,11 @@ const Web3Modal = EmberObject.extend({
         const {
             message
         } = await ajax('/discourse-siwe/message', {
-                data: {
-                    eth_account: address.toLowerCase(),
-                    chain_id: chainId,
-                }
-            })
+            data: {
+                eth_account: address.toLowerCase(),
+                chain_id: chainId,
+            }
+        })
             .catch(popupAjaxError);
 
         const signature = await provider.send(
