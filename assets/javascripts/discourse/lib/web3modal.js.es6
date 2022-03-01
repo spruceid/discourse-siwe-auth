@@ -26,7 +26,7 @@ const Web3Modal = EmberObject.extend({
                     };
                 }
             } catch (err) {
-                console.log(err);
+                console.error(err);
             }
             return opt;
         })();
@@ -40,7 +40,7 @@ const Web3Modal = EmberObject.extend({
 
     async loadScripts() {
         return Promise.all([
-            loadScript("/plugins/discourse-siwe/javascripts/ethers-5.1.umd.min.js"),
+            loadScript("/plugins/discourse-siwe/javascripts/ethers-5.5.4.umd.min.js"),
             loadScript("/plugins/discourse-siwe/javascripts/web3bundle.min.js"),
             loadScript("/plugins/discourse-siwe/javascripts/web3modal.min.js"),
         ]);
@@ -59,7 +59,7 @@ const Web3Modal = EmberObject.extend({
         let ens, avatar;
         try {
             ens = await provider.lookupAddress(address);
-            // avatar = await provider.getAvatar();
+            avatar = await provider.getAvatar(ens);
         } catch (error) {
             console.error(error);
         }
