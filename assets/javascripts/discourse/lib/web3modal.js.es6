@@ -72,7 +72,7 @@ const Web3Modal = EmberObject.extend({
             message
         } = await ajax('/discourse-siwe/message', {
             data: {
-                eth_account: address.toLowerCase(),
+                eth_account: address,
                 chain_id: chainId,
             }
         })
@@ -81,7 +81,7 @@ const Web3Modal = EmberObject.extend({
         try {
             const signature = await provider.send(
                 'personal_sign',
-                [ethers.utils.hexlify(ethers.utils.toUtf8Bytes(message)), address.toLowerCase()]
+                [ethers.utils.hexlify(ethers.utils.toUtf8Bytes(message)), address]
             );
             return [ens || address, message, signature, avatar];
 
