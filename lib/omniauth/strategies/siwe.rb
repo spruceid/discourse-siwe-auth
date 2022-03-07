@@ -27,19 +27,19 @@ module OmniAuth
         eth_message = eth_message_crlf.encode(eth_message_crlf.encoding, universal_newline: true)
         eth_signature = request.params['eth_signature']
         siwe_message = ::Siwe::Message.from_message(eth_message)
-        
+
         domain = Discourse.base_url
         domain.slice!("#{Discourse.base_protocol}://")
-        if siwe_message.domain !== domain
+        if siwe_message.domain != domain
           return fail!("Invalid domain")
         end
-        
+
         puts siwe_message.domain
         puts domain
         puts siwe_message.nonce
         puts session[:nonce]
 
-        if siwe_message.nonce !== session[:nonce]
+        if siwe_message.nonce != session[:nonce]
           return fail!("Invalid nonce")
         end
 
