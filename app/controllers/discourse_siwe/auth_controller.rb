@@ -16,6 +16,7 @@ module DiscourseSiwe
         nonce: Siwe::Util.generate_nonce,
         chain_id: params[:chain_id],
       })
+      session[:nonce] = message.nonce
 
       render json: { message: message.prepare_message }
     end
