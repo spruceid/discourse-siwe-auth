@@ -34,11 +34,6 @@ module OmniAuth
           return fail!("Invalid domain")
         end
 
-        puts siwe_message.domain
-        puts domain
-        puts siwe_message.nonce
-        puts session[:nonce]
-
         if siwe_message.nonce != session[:nonce]
           return fail!("Invalid nonce")
         end
