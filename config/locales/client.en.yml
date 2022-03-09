@@ -2,6 +2,7 @@ en:
   site_settings:
     discourse_siwe_enabled: "Either the plugin is enabled or not"
     siwe_infura_id: "Infura id to be used for WalletConnect"
+    siwe_statement: "Statement that will be displayed in the message"
   js:
     login:
       siwe:

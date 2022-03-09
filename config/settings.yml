@@ -4,3 +4,6 @@ plugins:
   siwe_infura_id:
     client: true
     default: ''
+  siwe_statement:
+    client: true
+    default: 'Sign-in to Discourse via Ethereum'
