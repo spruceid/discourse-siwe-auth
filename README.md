@@ -54,3 +54,7 @@ WalletConnect support can be provided via Infura. Create a new Infura project in
 order to receive a new Infura project ID. Then go to the settings (same as befor) 
 and paste the ID in that location and click on the checkmark. 
 ![Add infura id to plugin settings](/infura_id.png "Add infura id to plugin settings")
+
+## Edit the message statement
+By default a statement is added to the messages: Sign-in to Discourse via Ethereum. To edit this statement access the settings (same as before) and update it.
+![Add infura id to plugin settings](/statement.png "Field related to the message statement")
