@@ -87,7 +87,6 @@ const Web3Modal = EmberObject.extend({
 
         } catch (e) {
             await this.web3Modal.clearCachedProvider();
-            console.error(e);
             throw e;
         }
     },
