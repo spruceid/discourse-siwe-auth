@@ -59,7 +59,9 @@ const Web3Modal = EmberObject.extend({
         let ens, avatar;
         try {
             ens = await provider.lookupAddress(address);
-            avatar = await provider.getAvatar(ens);
+            if (ens) {
+                avatar = await provider.getAvatar(ens);
+            }
         } catch (error) {
             console.error(error);
         }
@@ -87,7 +89,6 @@ const Web3Modal = EmberObject.extend({
 
         } catch (e) {
             await this.web3Modal.clearCachedProvider();
-            console.error(e);
             throw e;
         }
     },
