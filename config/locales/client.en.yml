@@ -2,7 +2,12 @@ en:
   site_settings:
     discourse_siwe_enabled: "Either the plugin is enabled or not"
     siwe_infura_id: "Infura id to be used for WalletConnect"
+    siwe_json_rpc: "If set, allows to configure WalletConnect with JSON RPC"
     siwe_statement: "Statement that will be displayed in the message"
+    placeholder:
+      siwe_json_rpc:
+        key: "Chain ID"
+        value: "JSON RPC URL"
   js:
     login:
       siwe:
