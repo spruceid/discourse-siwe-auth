@@ -51,9 +51,18 @@ To disable it either remove the plugin or uncheck discourse siwe enabled at
 
 ## Enable WalletConnect
 WalletConnect support can be provided via Infura. Create a new Infura project in 
-order to receive a new Infura project ID. Then go to the settings (same as befor) 
+order to receive a new Infura project ID. Then go to the settings (same as before) 
 and paste the ID in that location and click on the checkmark. 
 ![Add infura id to plugin settings](/infura_id.png "Add infura id to plugin settings")
+
+### JSON RPC
+
+As an alternative, you can configure the WalletConnect instance with a JSON RPC.
+
+To do so, you will have to add one endpoint per chainId in the configuration section.
+
+As shown below:
+
 
 ## Edit the message statement
 By default a statement is added to the messages: Sign-in to Discourse via Ethereum. To edit this statement access the settings (same as before) and update it.
