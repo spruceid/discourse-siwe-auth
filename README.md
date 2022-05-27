@@ -61,7 +61,7 @@ As an alternative, you can configure the WalletConnect instance with JSON RPC en
 
 _Doing so will supersede the Infura ID configuration option for WalletConnect specifically, other uses of an Infura ID won't be affected._
 
-![image](https://user-images.githubusercontent.com/4248542/170707433-c27886f3-5885-487b-a205-b9f7de9ddd23.png)
+![Add JSON RPC endpoints](https://user-images.githubusercontent.com/4248542/170728808-870b441a-b12e-48c2-a47e-939f67aa2739.png)
 
 ## Edit the message statement
 By default a statement is added to the messages: Sign-in to Discourse via Ethereum. To edit this statement access the settings (same as before) and update it.
