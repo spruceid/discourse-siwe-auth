@@ -59,7 +59,7 @@ and paste the ID in that location and click on the checkmark.
 
 As an alternative, you can configure the WalletConnect instance with JSON RPC endpoints, as shown below:
 
-_Doing so will supersede the Infura ID configuration option for WalletConnect specifically, other uses of Infura ID won't be affected._
+_Doing so will supersede the Infura ID configuration option for WalletConnect specifically, other uses of an Infura ID won't be affected._
 
 ![image](https://user-images.githubusercontent.com/4248542/170707433-c27886f3-5885-487b-a205-b9f7de9ddd23.png)
 
