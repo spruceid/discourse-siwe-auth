@@ -17,7 +17,14 @@ const Web3Modal = EmberObject.extend({
         const providerOptions = (() => {
             const opt = {};
             try {
-                if (env.INFURA_ID) {
+                if (env.JSON_RPC) {
+                    opt.walletconnect = {
+                        package: Web3Bundle.WalletConnectProvider,
+                        options: {
+                            rpc: env.JSON_RPC,
+                        }
+                    };
+                } else if (env.INFURA_ID) {
                     opt.walletconnect = {
                         package: Web3Bundle.WalletConnectProvider,
                         options: {

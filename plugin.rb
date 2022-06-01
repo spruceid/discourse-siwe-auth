@@ -2,7 +2,7 @@
 
 # name: discourse-siwe
 # about: A discourse plugin to enable users to authenticate via Sign In with Ethereum
-# version: 0.1
+# version: 0.1.1
 
 enabled_site_setting :discourse_siwe_enabled
 register_svg_icon 'fab-ethereum'

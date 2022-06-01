@@ -19,8 +19,15 @@ export default Controller.extend({
   async initAuth() {
     const env = withPluginApi("0.11.7", (api) => {
       const siteSettings = api.container.lookup("site-settings:main");
+
+      const JSON_RPC = siteSettings.siwe_json_rpc.length > 0 ? siteSettings.siwe_json_rpc.split('\n').map((line) => {
+        const [key, value] = line.split('|');
+        return {[key]: value};
+      }).reduce((acc, e) => Object.assign({}, acc, e)) : null;
+
       return {
         INFURA_ID: siteSettings.siwe_infura_id,
+        JSON_RPC,
       }
     });
     let provider = Web3Modal.create();
