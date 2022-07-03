@@ -22,7 +22,7 @@ gem 'konstructor', '1.0.2', require: false
 gem 'ffi', '1.15.5', require: false
 gem 'ffi-compiler', '1.0.1', require: false
 gem 'scrypt', '3.0.7', require: false
-gem 'eth', '0.5.1', require: false
+gem 'eth', '0.5.6', require: false
 gem 'siwe', '1.1.2', require: false
 
 class ::SiweAuthenticator < ::Auth::ManagedAuthenticator
