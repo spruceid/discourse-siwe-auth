@@ -27,12 +27,16 @@ nano containers/app.yml
 Add the plugin’s repository URL to your container’s app.yml file:
 ```yml
 hooks:
+  before_code:                             # <-- added
+    - exec:                                # <-- added
+        cmd:                               # <-- added
+          - gem install rubyzip            # <-- added
   after_code:
     - exec:
       cd: $home/plugins
       cmd:
         - sudo -E -u discourse git clone https://github.com/discourse/docker_manager.git
-        - sudo -E -u discourse git clone https://github.com/spruceid/discourse-siwe-auth.git
+        - sudo -E -u discourse git clone https://github.com/spruceid/discourse-siwe-auth.git   # <-- added
 ```
 
 Follow the existing format of the docker_manager.git line; if it does not 
