@@ -6,7 +6,8 @@ and projects to discuss proposals, updates, and research. The following is a
 quick guide on how to add Sign-In with Ethereum to your existing Discourse.
 
 ### Requirements
-- A self-hosted Discourse server
+- A Discourse forum that is self-hosted or that is hosted with a provider that allows 
+third party plugins, like [Communiteq](https://www.communiteq.com/).
 
 ### Note
 The Sign-In with Ethereum plugin still requires users to enter an email to 
