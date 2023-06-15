@@ -14,35 +14,18 @@ const Web3Modal = EmberObject.extend({
     async providerInit(env) {
         await this.loadScripts();
         const Web3Modal = window.Web3Modal.default;
-        const providerOptions = (() => {
-            const opt = {};
-            try {
-                if (env.JSON_RPC) {
-                    opt.walletconnect = {
-                        package: Web3Bundle.WalletConnectProvider,
-                        options: {
-                            rpc: env.JSON_RPC,
-                        }
-                    };
-                } else if (env.INFURA_ID) {
-                    opt.walletconnect = {
-                        package: Web3Bundle.WalletConnectProvider,
-                        options: {
-                            infuraId: env.INFURA_ID,
-                        }
-                    };
-                }
-            } catch (err) {
-                console.error(err);
-            }
-            return opt;
-        })();
+        const chains = [window.WagmiCore.arbitrum, window.WagmiCore.mainnet, window.WagmiCore.polygon];
+        const projectId = env.PROJECT_ID;
 
-        this.web3Modal = new Web3Modal({
-            network: env.network,
-            cacheProvider: true,
-            providerOptions,
+        const { publicClient } = window.WagmiCore.configureChains(chains, [window.Web3ModalEth.w3mProvider({ projectId })]);
+        const wagmiConfig = window.WagmiCore.createConfig({
+            autoConnect: true,
+            connectors: window.Web3ModalEth.w3mConnectors({ projectId, version: 1, chains }),
+            publicClient
         });
+        const EthereumClient = window.Web3ModalEth.EthereumClient.default;
+        const ethereumClient = new EthereumClient(wagmiConfig, chains);
+        this.web3modal = new Web3Modal({ projectId }, ethereumClient);
     },
 
     async loadScripts() {
