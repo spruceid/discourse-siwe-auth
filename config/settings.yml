@@ -1,18 +1,9 @@
 plugins:
   discourse_siwe_enabled:
     default: true
-  siwe_infura_id:
+  siwe_project_id:
     client: true
     default: ''
-  siwe_json_rpc:
-    client: true
-    default: ''
-    type: list
-    list_type: secret
-    secret: false
-    placeholder:
-      key: "siwe_json_rpc.key_placeholder"
-      value: "siwe_json_rpc.value_placehoder"
   siwe_statement:
     client: true
     default: 'Sign-in to Discourse via Ethereum'
