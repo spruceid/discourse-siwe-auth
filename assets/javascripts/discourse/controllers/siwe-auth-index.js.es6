@@ -20,25 +20,20 @@ export default Controller.extend({
     const env = withPluginApi("0.11.7", (api) => {
       const siteSettings = api.container.lookup("site-settings:main");
 
-      const JSON_RPC = siteSettings.siwe_json_rpc.length > 0 ? siteSettings.siwe_json_rpc.split('\n').map((line) => {
-        const [key, value] = line.split('|');
-        return {[key]: value};
-      }).reduce((acc, e) => Object.assign({}, acc, e)) : null;
-
       return {
-        INFURA_ID: siteSettings.siwe_infura_id,
-        JSON_RPC,
+        PROJECT_ID: siteSettings.siwe_project_id,
       }
     });
     let provider = Web3Modal.create();
     await provider.providerInit(env);
-
-    try {
-      const [account, message, signature, avatar] = await provider.runSigningProcess();
-      this.verifySignature(account, message, signature, avatar);
-    } catch (e) {
-      console.error(e);
-    }
+    await provider.runSigningProcess(async (res) => {
+      try {
+        const [account, message, signature, avatar] = res;
+        this.verifySignature(account, message, signature, avatar);
+      } catch (e) {
+        console.error(e);
+      }
+    });
   },
 
   actions: {

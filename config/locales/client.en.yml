@@ -1,8 +1,7 @@
 en:
   site_settings:
     discourse_siwe_enabled: "Either the plugin is enabled or not"
-    siwe_infura_id: "Infura ID to be used for WalletConnect"
-    siwe_json_rpc: "JSON RPC configuration to be used for WalletConnect. If set, will supersede Infura ID for WalletConnect"
+    siwe_project_id: "Project ID for Web3Modal"
     siwe_statement: "Statement that will be displayed in the message"
     placeholder:
       siwe_json_rpc:
