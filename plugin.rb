@@ -20,7 +20,7 @@ gem 'zip', '2.0.2', require: false
 gem 'mini_portile2', '2.8.0', require: false
 gem 'rbsecp256k1', '6.0.0', require: false
 gem 'konstructor', '1.0.2', require: false
-gem 'ffi', '1.15.5', require: false
+gem 'ffi', '1.16.3', require: false
 gem 'ffi-compiler', '1.0.1', require: false
 gem 'scrypt', '3.0.7', require: false
 gem 'eth', '0.5.11', require: false
