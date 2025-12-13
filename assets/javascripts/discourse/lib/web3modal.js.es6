@@ -19,14 +19,14 @@ const Web3Modal = EmberObject.extend({
         const { publicClient } = window.WagmiCore.configureChains(chains, [window.Web3ModalEth.w3mProvider({ projectId })]);
         const wagmiConfig = window.WagmiCore.createConfig({
             autoConnect: true,
-            connectors: window.Web3ModalEth.w3mConnectors({ projectId, version: 1, chains }),
+            connectors: window.Web3ModalEth.w3mConnectors({ projectId, version: 2, chains }),
             publicClient
         });
         const EthereumClient = window.Web3ModalEth.EthereumClient;
         const ethereumClient = new EthereumClient(wagmiConfig, chains);
         this.ethereumClient = ethereumClient;
         window.ethereumClient = ethereumClient;
-        
+
         const modal = new Web3Modal({ projectId, themeVariables: { '--w3m-z-index': '99999' } }, ethereumClient);
         this.web3Modal = modal;
         return modal;
@@ -74,7 +74,7 @@ const Web3Modal = EmberObject.extend({
             throw e;
         }
     },
-    
+
     async runSigningProcess(cb) {
         window.WagmiCore.watchAccount(async (account) => {
             if (account.isConnected && account.address) {
