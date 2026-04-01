@@ -19,7 +19,7 @@ const Web3Modal = EmberObject.extend({
         const { publicClient } = window.WagmiCore.configureChains(chains, [window.Web3ModalEth.w3mProvider({ projectId })]);
         const wagmiConfig = window.WagmiCore.createConfig({
             autoConnect: true,
-            connectors: window.Web3ModalEth.w3mConnectors({ projectId, version: 1, chains }),
+            connectors: window.Web3ModalEth.w3mConnectors({ projectId, version: 2, chains }),
             publicClient
         });
         const EthereumClient = window.Web3ModalEth.EthereumClient;
